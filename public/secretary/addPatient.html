@@ -1,5 +1,56 @@
-<h1 class="text-3xl font-bold mb-4">Add Patient</h1>
-<form>
-  <input type="text" placeholder="Patient Name" class="block w-full p-2 mb-4 border border-gray-300 rounded" />
-  <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Add Patient</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Patient</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+  </head>
+  <body class="bg-gray-100 flex min-h-screen">
+    <!-- Mobile Toggle Button -->
+    <button id="toggle-nav" class="md:hidden p-4">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+
+    <!-- Side Navigation -->
+    <div id="side-nav" class="bg-white w-64 p-4 flex flex-col shadow-md fixed md:relative md:translate-x-0 transform -translate-x-full transition-transform duration-300 ease-in-out">
+      <!-- Close Button for Mobile -->
+      <button id="close-nav" class="md:hidden self-end mb-4">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      <!-- Profile Section -->
+      <div class="text-center mb-6">
+        <i class="fas fa-user-circle text-4xl mb-2"></i>
+        <h2 class="text-xl font-bold">Secretary Dashboard</h2>
+      </div>
+      <ul class="space-y-2">
+        <li>
+          <a href="../secretaryDashboard.html" class="block p-2 rounded hover:bg-gray-200">Dashboard</a>
+        </li>
+        <li>
+          <a href="addPatient.html" class="block p-2 rounded hover:bg-gray-200">Add Patient</a>
+        </li>
+        <li>
+          <a href="existingPatient.html" class="block p-2 rounded hover:bg-gray-200">Existing Patient</a>
+        </li>
+        <li>
+          <a href="manageRecords.html" class="block p-2 rounded hover:bg-gray-200">Manage Records</a>
+        </li>
+        <li>
+          <a href="settings.html" class="block p-2 rounded hover:bg-gray-200">Settings</a>
+        </li>
+      </ul>
+      <!-- Logout Button -->
+      <button onclick="logout()" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 mt-auto">Logout</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-1 p-8 ml-0">
+      <h1>Add New Patient</h1>
+    </main>
+
+    <script type="module" src="../src/js/logout.js"></script>
+    <script src="components/secretaryNav.js"></script>
+  </body>
+</html>
