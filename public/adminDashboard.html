@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secretary Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+  </head>
+  <body class="bg-gray-100 flex min-h-screen">
+    <!-- Side Navigation -->
+    <div class="bg-white w-64 p-4 flex flex-col shadow-md">
+      <!-- Profile Section -->
+      <div class="text-center mb-6">
+        <i class="fas fa-user-circle text-4xl mb-2"></i>
+        <h2 class="text-xl font-bold">Secretary Dashboard</h2>
+      </div>
+      <ul class="space-y-2">
+        <li>
+          <a href="#" id="nav-dashboard" class="block p-2 rounded hover:bg-gray-200">Dashboard</a>
+        </li>
+        <li>
+          <a href="#" id="nav-add-patient" class="block p-2 rounded hover:bg-gray-200">Add Patient</a>
+        </li>
+        <li>
+          <a href="#" id="nav-existing-patient" class="block p-2 rounded hover:bg-gray-200">Existing Patient</a>
+        </li>
+        <li>
+          <a href="#" id="nav-manage-records" class="block p-2 rounded hover:bg-gray-200">Manage Records</a>
+        </li>
+        <li>
+          <a href="#" id="nav-settings" class="block p-2 rounded hover:bg-gray-200">Settings</a>
+        </li>
+      </ul>
+      <!-- Logout Button -->
+      <button onclick="logout()" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 mt-auto">Logout</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main-content" class="flex-1 p-8">
+      <h1 class="text-3xl font-bold mb-4">Welcome to the Secretary Dashboard</h1>
+      <p class="text-lg">Select an option from the side navigation to get started.</p>
+    </div>
+
+    <script type="module" src="../src/js/logout.js"></script>
+    <script>
+      // Content for each section
+      const content = {
+        dashboard: `
+          <h1 class="text-3xl font-bold mb-4">Dashboard Overview</h1>
+          <p class="text-lg">This is the dashboard overview content.</p>
+        `,
+        addPatient: `
+          <h1 class="text-3xl font-bold mb-4">Add Patient</h1>
+          <p class="text-lg">Here you can add new patients to the system.</p>
+        `,
+        existingPatient: `
+          <h1 class="text-3xl font-bold mb-4">Existing Patients</h1>
+          <p class="text-lg">View and manage existing patient records.</p>
+        `,
+        manageRecords: `
+          <h1 class="text-3xl font-bold mb-4">Manage Records</h1>
+          <p class="text-lg">Manage patient records and other data.</p>
+        `,
+        settings: `
+          <h1 class="text-3xl font-bold mb-4">Settings</h1>
+          <p class="text-lg">Adjust your settings and preferences here.</p>
+        `
+      };
+
+      // Function to update main content
+      function updateContent(section) {
+        const mainContent = document.getElementById('main-content');
+        mainContent.innerHTML = content[section];
+      }
+
+      // Event listeners for navigation links
+      document.getElementById('nav-dashboard').addEventListener('click', () => updateContent('dashboard'));
+      document.getElementById('nav-add-patient').addEventListener('click', () => updateContent('addPatient'));
+      document.getElementById('nav-existing-patient').addEventListener('click', () => updateContent('existingPatient'));
+      document.getElementById('nav-manage-records').addEventListener('click', () => updateContent('manageRecords'));
+      document.getElementById('nav-settings').addEventListener('click', () => updateContent('settings'));
+    </script>
+  </body>
+</html>
